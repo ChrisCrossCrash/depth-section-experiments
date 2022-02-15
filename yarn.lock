@@ -3437,9 +3437,9 @@ depd@~1.1.2:
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
 
 depth-section@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/depth-section/-/depth-section-0.6.1.tgz#91ad340b0eb447e91a9a6f53c72efd8086e2c5b1"
-  integrity sha512-Iz5t0yv2tVJvXJfddq/ZUCVCejlD0G7bCFdXTAjK2smy7LxbnMOEODL5tgmOUmsEBwI2aatRuGAnxHCkUpUUyg==
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/depth-section/-/depth-section-0.6.2.tgz#06fe01b26cb9bb2e94381fb1a1420416aba1db3c"
+  integrity sha512-VkkoVk47GYXFbrK1gVCMHt3TGdel0s9ZNixw0fXWYXRtMTdsguQKfeqWCVjRWXkOITt5Cq1zRFM5YQNhWYL/bg==
 
 destroy@~1.0.4:
   version "1.0.4"
@@ -7471,9 +7471,9 @@ sanitize.css@*:
   integrity sha512-ZRwKbh/eQ6w9vmTjkuG0Ioi3HBwPFce0O+v//ve+aOq1oeCy7jMV2qzzAlpsNuqpqCBjjriM1lbtZbF/Q8jVyA==
 
 sass-loader@^12.3.0:
-  version "12.4.0"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-12.4.0.tgz#260b0d51a8a373bb8e88efc11f6ba5583fea0bcf"
-  integrity sha512-7xN+8khDIzym1oL9XyS6zP6Ges+Bo2B2xbPrjdMHEYyV3AQYhd/wXeru++3ODHF0zMjYmVadblSKrPrjEkL8mg==
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-12.5.0.tgz#8010243734ade76371db8ba3df3cb40295f2b81c"
+  integrity sha512-POCQch5T2PFYOaHGJJgPoVaxJ76Ks+OIqKsDv2ErD53HE/WdPRehkVqdc5Qbt2fD2iGmgIRILDgQGbSHjmPrCA==
   dependencies:
     klona "^2.0.4"
     neo-async "^2.6.2"

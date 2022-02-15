@@ -1,43 +1,46 @@
-import { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { useRef } from 'react'
+import { Torus } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import { DepthSection, getCameraAimPos } from 'depth-section'
 import './App.css'
 import type { Mesh } from 'three'
 
-type BoxProps = JSX.IntrinsicElements['mesh']
-
-const Box = (props: BoxProps) => {
-  const mesh = useRef<Mesh>(null!)
-
-  const [isHovered, setIsHovered] = useState(false)
-  const [isActive, setIsActive] = useState(false)
-
-  useFrame(() => (mesh.current.rotation.y += 0.01))
+const Floaty = () => {
+  const ref = useRef<Mesh>()
+  useFrame((state) => {
+    if (!ref.current) return
+    const [x, y] = getCameraAimPos(state)
+    ref.current.position.x = x
+    ref.current.position.y = y
+    ref.current.rotation.y = state.clock.getElapsedTime()
+  })
 
   return (
-    <mesh
-      {...props}
-      ref={mesh}
-      scale={isActive ? 1.5 : 1}
-      onClick={() => setIsActive(!isActive)}
-      onPointerOver={() => setIsHovered(true)}
-      onPointerOut={() => setIsHovered(false)}
-    >
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={isHovered ? 'hotpink' : 'orange'} />
-    </mesh>
+    <Torus args={[0.5, 0.2, 32, 32]} ref={ref}>
+      <meshStandardMaterial color='red' roughness={0.15} />
+    </Torus>
   )
 }
 
 function App() {
   // const gltf = useLoader(GLTFLoader, '/donut.glb')
   return (
-    <div id='three-wrapper'>
-      <Canvas camera={{ fov: 55 }}>
-        <pointLight position={[10, 10, 10]} intensity={0.5} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
-      </Canvas>
-    </div>
+    <>
+      <div style={{ height: '100vh' }} />
+      <div
+        style={{
+          height: '100vh',
+          backgroundColor: 'orange',
+        }}
+      >
+        <DepthSection>
+          <Floaty />
+          <ambientLight intensity={0.2} />
+          <pointLight position={[10, 10, 10]} />
+        </DepthSection>
+      </div>
+      <div style={{ height: '100vh' }} />
+    </>
   )
 }
 
